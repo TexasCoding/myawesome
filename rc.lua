@@ -60,18 +60,23 @@ end
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminator"
-editor = os.getenv("EDITOR") or "nano"
+terminal   = "terminator"
+editor     = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
-chrome = "google-chrome-stable"
-firefox = "firefox"
-mail = "thunderbird"
-dmenu = "dmenu_run"
-subl = "subl3"
-leaf = "leafpad"
-files = "pcmanfm"
-uget = "uget"
-deluge = "deluge"
+chrome     = "google-chrome-stable"
+firefox    = "firefox"
+mail       = "thunderbird"
+dmenu      = "dmenu_run"
+subl       = "subl3"
+leaf       = "leafpad"
+files      = "pcmanfm"
+uget       = "uget-gtk"
+deluge     = "deluge"
+bleachr    = "gksudo bleachbit"
+bleach     = "bleachbit"
+gparted    = "gksudo gparted"
+appearr    = "gksudo lxappearance"
+appear     = "lxappearance"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -125,11 +130,12 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-				    {"Applications", xdgmenu},
-                                    { "open terminal", terminal }
-                                  }
-                        })
+mymainmenu = awful.menu({ items = { 
+        { "awesome", myawesomemenu, beautiful.awesome_icon },
+    	{"Applications", xdgmenu},
+        {"Log out", '~/.config/awesome/shutdown_dialog.sh'}
+    }
+})
 
 
 -- Menubar configuration
@@ -419,8 +425,12 @@ globalkeys = awful.util.table.join(
     ---------------------------------------------------------------------------------------
     ---  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ APPLICATIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ---
     ---------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------
+    ---  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ APPLICATIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ---
+    ---------------------------------------------------------------------------------------
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(dmenu) end),
     awful.key({ modkey,    altkey }, "c", function () awful.util.spawn(chrome) end),
+    awful.key({ modkey,    altkey }, "m", function () awful.util.spawn(mail) end),
     awful.key({ modkey,    altkey }, "f", function () awful.util.spawn(firefox) end),
     awful.key({ modkey,    altkey }, "p", function () awful.util.spawn(files) end),
     awful.key({ modkey,    altkey }, "l", function () awful.util.spawn(leaf) end),
@@ -428,18 +438,23 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,    altkey }, "t", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,    altkey }, "u", function () awful.util.spawn(uget) end),
     awful.key({ modkey,    altkey }, "d", function () awful.util.spawn(deluge) end),
-
-
+    awful.key({ modkey,    altkey }, "b", function () awful.util.spawn(bleach) end),
+    awful.key({ modkey,    altkey, 
+                        "Control" }, "b", function () awful.util.spawn(bleachr) end),
+    awful.key({ modkey,    altkey }, "g", function () awful.util.spawn(gparted) end),
+    awful.key({ modkey,    altkey }, "a", function () awful.util.spawn(appear) end),
+    awful.key({ modkey,    altkey, 
+                        "Control" }, "a", function () awful.util.spawn(appearr) end),
+    ---------------------------------------------------------------------------------------
+    ---  \\\\\\\\\\\\\\\\\\\\\\\\\\\\ END APPLICATIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ---
+    ---------------------------------------------------------------------------------------
     ---------------------------------------------------------------------------------------
     ---  \\\\\\\\\\\\\\\\\\\\\\\\\\\\ END APPLICATIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ---
     ---------------------------------------------------------------------------------------
 
 
-
-
     awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-
+    awful.key({ modkey, "Control" }, "q", awesome.quit),
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
