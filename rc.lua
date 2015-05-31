@@ -60,6 +60,7 @@ end
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
+sessions   = "~/.config/awesome/shutdown_dialog.sh"
 terminal   = "terminator"
 editor     = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
@@ -133,7 +134,7 @@ myawesomemenu = {
 mymainmenu = awful.menu({ items = { 
         { "awesome", myawesomemenu, beautiful.awesome_icon },
     	{"Applications", xdgmenu},
-        {"Log out", '~/.config/awesome/shutdown_dialog.sh'}
+        {"Log out", sessions}
     }
 })
 
@@ -428,6 +429,9 @@ globalkeys = awful.util.table.join(
     ---------------------------------------------------------------------------------------
     ---  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ APPLICATIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ---
     ---------------------------------------------------------------------------------------
+    --sessions
+    awful.key({ modkey, "Control" }, "Menu", function () awful.util.spawn_with_shell(sessions) end),
+    --end sessions
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(dmenu) end),
     awful.key({ modkey,    altkey }, "c", function () awful.util.spawn(chrome) end),
     awful.key({ modkey,    altkey }, "m", function () awful.util.spawn(mail) end),
