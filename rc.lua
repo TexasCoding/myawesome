@@ -27,7 +27,8 @@ end
 run_once("compton --config ~/.config/compton.conf")
 run_once("nm-applet")
 run_once("dropbox")
-
+run_once("xset -dpms")
+run_once("xset s off")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
