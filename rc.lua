@@ -79,6 +79,7 @@ bleach     = "bleachbit"
 gparted    = "gksudo gparted"
 appearr    = "gksudo lxappearance"
 appear     = "lxappearance"
+pdfsam     = "pdfsam"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -403,7 +404,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
+    awful.key({ modkey,           }, "Menu", function () mymainmenu:show() end),
 
     -- Layout manipulation
     -- awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -430,11 +431,9 @@ globalkeys = awful.util.table.join(
     ---------------------------------------------------------------------------------------
     ---  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ APPLICATIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ---
     ---------------------------------------------------------------------------------------
-    --sessions
-    awful.key({ modkey, "Control" }, "Menu", function () awful.util.spawn_with_shell(sessions) end),
-    --end sessions
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(dmenu) end),
     awful.key({ modkey,    altkey }, "c", function () awful.util.spawn(chrome) end),
+    awful.key({ modkey,    altkey }, "e", function () awful.util.spawn(pdfsam) end),
     awful.key({ modkey,    altkey }, "m", function () awful.util.spawn(mail) end),
     awful.key({ modkey,    altkey }, "f", function () awful.util.spawn(firefox) end),
     awful.key({ modkey,    altkey }, "p", function () awful.util.spawn(files) end),

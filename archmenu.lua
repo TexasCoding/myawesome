@@ -1,6 +1,7 @@
  local menu98edb85b00d9527ad5acebe451b3fae6 = {
      {"Archive Manager", "file-roller ", "/usr/share/icons/hicolor/16x16/apps/file-roller.png" },
      {"Leafpad", "leafpad ", "/usr/share/icons/hicolor/16x16/apps/leafpad.png" },
+     {"Root Terminal", "gksu -l gnome-terminal", "/usr/share/pixmaps/gksu-root-terminal.png" },
      {"compton", "compton"},
  }
 
@@ -39,6 +40,7 @@
  }
 
  local menue6f43c40ab1c07cd29e4e83e4ef6bf85 = {
+     {"CMake", "cmake-gui ", "/usr/share/icons/hicolor/32x32/apps/CMakeSetup.png" },
      {"OpenJDK Monitoring & Management Console", "/usr/bin/jconsole", "/usr/share/icons/hicolor/16x16/apps/java.png" },
      {"OpenJDK Policy Tool", "/usr/bin/policytool", "/usr/share/icons/hicolor/16x16/apps/java.png" },
      {"Qt4 Assistant ", "assistant-qt4", "/usr/share/icons/hicolor/32x32/apps/assistant-qt4.png" },
@@ -49,15 +51,20 @@
  }
 
  local menu52dd1c847264a75f400961bfb4d1c849 = {
-     {"PulseAudio Volume Control", "pavucontrol", "/usr/share/icons/gnome/16x16/apps/multimedia-volume-control.png" },
+     {"Cheese", "cheese", "/usr/share/icons/hicolor/16x16/apps/cheese.png" },
+     {"PulseAudio Volume Control", "pavucontrol", "/usr/share/icons/hicolor/16x16/apps/multimedia-volume-control.png" },
      {"Qt V4L2 test Utility", "qv4l2", "/usr/share/icons/hicolor/16x16/apps/qv4l2.png" },
      {"VLC media player", "/usr/bin/vlc --started-from-file ", "/usr/share/icons/hicolor/16x16/apps/vlc.png" },
  }
 
  local menuee69799670a33f75d45c57d1d1cd0ab3 = {
      {"Avahi Zeroconf Browser", "/usr/bin/avahi-discover", "/usr/share/icons/gnome/16x16/devices/network-wired.png" },
+     {"BleachBit", "bleachbit", "/usr/share/pixmaps/bleachbit.png" },
+     {"Color Profile Viewer", "gcm-viewer", "/usr/share/icons/hicolor/16x16/apps/gnome-color-manager.png" },
      {"File Manager PCManFM", "pcmanfm ", "/usr/share/icons/gnome/16x16/apps/system-file-manager.png" },
      {"GParted", "/usr/bin/gparted_polkit ", "/usr/share/icons/hicolor/16x16/apps/gparted.png" },
+     {"Grub Customizer", "grub-customizer", "/usr/share/icons/hicolor/16x16/apps/grub-customizer.png" },
+     {"Oracle VM VirtualBox", "VirtualBox ", "/usr/share/icons/hicolor/16x16/mimetypes/virtualbox.png" },
      {"Terminator", "terminator", "/usr/share/icons/hicolor/16x16/apps/terminator.png" },
      {"UXTerm", "uxterm", "/usr/share/pixmaps/xterm-color_48x48.xpm" },
      {"XTerm", "xterm", "/usr/share/pixmaps/xterm-color_48x48.xpm" },
