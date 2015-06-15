@@ -128,7 +128,7 @@ end
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
+   { "edit config", subl .. " " .. "~/.config/awesome/rc.lua" },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -432,6 +432,8 @@ globalkeys = awful.util.table.join(
     ---  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ APPLICATIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ---
     ---------------------------------------------------------------------------------------
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(dmenu) end),
+    awful.key({ modkey,     altkey, 
+                                              "Control"}, "p", function () awful.util.spawn(pdfsam) end),
     awful.key({ modkey,    altkey }, "c", function () awful.util.spawn(chrome) end),
     awful.key({ modkey,    altkey }, "e", function () awful.util.spawn(pdfsam) end),
     awful.key({ modkey,    altkey }, "m", function () awful.util.spawn(mail) end),
@@ -444,11 +446,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,    altkey }, "d", function () awful.util.spawn(deluge) end),
     awful.key({ modkey,    altkey }, "b", function () awful.util.spawn(bleach) end),
     awful.key({ modkey,    altkey, 
-                        "Control" }, "b", function () awful.util.spawn(bleachr) end),
+                                             "Control" }, "b", function () awful.util.spawn(bleachr) end),
     awful.key({ modkey,    altkey }, "g", function () awful.util.spawn(gparted) end),
     awful.key({ modkey,    altkey }, "a", function () awful.util.spawn(appear) end),
     awful.key({ modkey,    altkey, 
-                        "Control" }, "a", function () awful.util.spawn(appearr) end),
+                                             "Control" }, "a", function () awful.util.spawn(appearr) end),
     ---------------------------------------------------------------------------------------
     ---  \\\\\\\\\\\\\\\\\\\\\\\\\\\\ END APPLICATIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ---
     ---------------------------------------------------------------------------------------
