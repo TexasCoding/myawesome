@@ -24,11 +24,8 @@ function run_once(cmd)
 end
 
 
-run_once("compton --config ~/.config/compton.conf")
 run_once("nm-applet")
 run_once("dropbox")
-run_once("xset -dpms")
-run_once("xset s off")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -63,23 +60,15 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker/t
 -- This is used later as the default terminal and editor to run.
 sessions   = "~/.config/awesome/shutdown_dialog.sh"
 terminal   = "terminator"
-editor     = os.getenv("EDITOR") or "nano"
+editor     = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
-chrome     = "google-chrome-stable"
+chrome     = "google-chrome-unstable"
 firefox    = "firefox"
 mail       = "thunderbird"
-dmenu      = "dmenu_run"
-subl       = "subl3"
 leaf       = "leafpad"
-files      = "pcmanfm"
 uget       = "uget-gtk"
-deluge     = "deluge"
-bleachr    = "gksudo bleachbit"
-bleach     = "bleachbit"
-gparted    = "gksudo gparted"
 appearr    = "gksudo lxappearance"
 appear     = "lxappearance"
-pdfsam     = "pdfsam"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -128,7 +117,7 @@ end
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", subl .. " " .. "~/.config/awesome/rc.lua" },
+---   { "edit config", subl .. " " .. "~/.config/awesome/rc.lua" },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -440,7 +429,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,    altkey }, "f", function () awful.util.spawn(firefox) end),
     awful.key({ modkey,    altkey }, "p", function () awful.util.spawn(files) end),
     awful.key({ modkey,    altkey }, "l", function () awful.util.spawn(leaf) end),
-    awful.key({ modkey,    altkey }, "s", function () awful.util.spawn(subl) end),
+---    awful.key({ modkey,    altkey }, "s", function () awful.util.spawn(subl) end),
     awful.key({ modkey,    altkey }, "t", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,    altkey }, "u", function () awful.util.spawn(uget) end),
     awful.key({ modkey,    altkey }, "d", function () awful.util.spawn(deluge) end),
@@ -659,3 +648,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 -- }}}
+run_once("compton --config ~/.config/compton.conf")
